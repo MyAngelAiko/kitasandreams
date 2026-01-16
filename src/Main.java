@@ -27,6 +27,17 @@ class uma {
         return randomNum;
     }
 
+    static void finaljFrame(ImageIcon oguriIcon) {
+        JFrame finaljFrame = new JFrame();
+        finaljFrame.setLayout(new FlowLayout());
+        finaljFrame.setSize(500, 500);
+        JLabel jLabel = new JLabel();
+        jLabel.setIcon(oguriIcon);
+        finaljFrame.add(jLabel);
+        finaljFrame.setVisible(true);
+        finaljFrame.setDefaultCloseOperation(finaljFrame.EXIT_ON_CLOSE);
+    }
+
     public static void main(String[] args) {
         JFrame frame = new JFrame();
         frameMethod(frame);
@@ -46,14 +57,7 @@ class uma {
                     File oguriImage = new File(imageLinks[arrayNumber]);
                     BufferedImage bufferedOguri = ImageIO.read(oguriImage);
                     ImageIcon oguriIcon = new ImageIcon(bufferedOguri);
-                    JFrame finaljFrame = new JFrame();
-                    finaljFrame.setLayout(new FlowLayout());
-                    finaljFrame.setSize(500, 500);
-                    JLabel jLabel = new JLabel();
-                    jLabel.setIcon(oguriIcon);
-                    finaljFrame.add(jLabel);
-                    finaljFrame.setVisible(true);
-                    finaljFrame.setDefaultCloseOperation(finaljFrame.EXIT_ON_CLOSE);
+                    finaljFrame(oguriIcon);
                 } catch (IOException ioe) {
                     System.out.println("looks like we have trouble reading ts file: " + ioe.getMessage());
                 }
